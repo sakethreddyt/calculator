@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <h1>Calculator</h1>
+    <style>
+        body{
+            background-color: black;
+        }
+    h1{
+        text-align: center;
+    }
+
+    .calculator {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    }
+
+    #result {
+        width: calc(100% - 10px);
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .button {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    .button button {
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .button button:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Add styles for different button classes */
+.button button.clear {
+    background-color: #ef9520; /* Red for clear button */
+}
+
+.button button.brase1 {
+    background-color: #99ff99; /* Green for opening parenthesis button */
+}
+
+.button button.brase2 {
+    background-color: #99ff99; /* Green for closing parenthesis button */
+}
+
+.button button.divide {
+    background-color: #4189c8; /* Grey for / button */
+}
+
+.button button.nine {
+    background-color: #ffffff; /* Yellow for number 9 button */
+}
+
+.button button.eight {
+    background-color: #ffffff; /* Yellow for number 8 button */
+}
+
+.button button.seven {
+    background-color: #ffffff; /* Yellow for number 7 button */
+}
+
+.button button.six {
+    background-color: #ffffff; /* Yellow for number 6 button */
+}
+
+.button button.five {
+    background-color: #ffffff; /* Yellow for number 5 button */
+}
+
+.button button.four {
+    background-color: #ffffff; /* Yellow for number 4 button */
+}
+
+.button button.three {
+    background-color: #ffffff; /* Yellow for number 3 button */
+}
+
+.button button.two {
+    background-color: #ffffff; /* Yellow for number 2 button */
+}
+
+.button button.one {
+    background-color: #ffffff; /* Yellow for number 1 button */
+}
+
+.button button.zero {
+    background-color: aqua; /* Yellow for number 0 button */
+}
+
+.button button.mult {
+    background-color: #4189c8; /* Yellow for number * button */
+}
+
+.button button.sub {
+    background-color: #4189c8; /* Yellow for number - button */
+}
+
+.button button.add {
+    background-color: #4189c8; /* Yellow for number + button */
+}
+
+.button button.dot {
+    background-color: cornsilk; /* Yellow for number . button */
+}
+
+.button button.del {
+    background-color: chocolate; /* Yellow for number del button */
+}
+
+.button button.equal {
+    background-color: gold; /* Yellow for number = button */
+}
+
+/* Media query for tablet */
+@media only screen and (max-width: 768px) {
+    .calculator {
+        max-width: 250px;
+    }
+}
+
+/* Media query for mobile */
+@media only screen and (max-width: 480px) {
+    .calculator {
+        max-width: 200px;
+        padding: 10px;
+    }
+    }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="result" readonly>
+        <div class="button">
+            <button class="clear" onclick="clearResult()">AC</button>
+            <button class="brase1" onclick="appndToResult('(')">(</button>
+            
+            <button class="brase2" onclick="appndToResult(')')">)</button>
+            <button class="divide"onclick="appndToResult('/')">/</button>
+            <button class="nine" onclick="appndToResult('9')">9</button>
+            <button class="eight" onclick="appndToResult('8')">8</button>
+            <button class="seven" onclick="appndToResult('7')">7</button>
+            <button class="mult" onclick="appndToResult('*')">*</button>
+            <button class="six" onclick="appndToResult('6')">6</button>
+            <button class="five" onclick="appndToResult('5')">5</button>
+            <button class="four" onclick="appndToResult('4')">4</button>
+            <button class="sub" onclick="appndToResult('-')">-</button>
+            <button class="three" onclick="appndToResult('3')">3</button>
+            <button class="two" onclick="appndToResult('2')">2</button>
+            <button class="one" onclick="appndToResult('1')">1</button>
+            <button class="add" onclick="appndToResult('+')">+</button>
+            <button class="zero" onclick="appndToResult('0')">0</button>
+            <button class="dot" onclick="appndToResult('.')">.</button>
+            <button class="del" onclick="deleteResult()">Del</button>
+            <button class="equal" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+    <script>
+        // Adding or printing values to the input bar
+        function appndToResult(val){
+            document.getElementById("result").value += val;
+        }
+    
+        // Clearing the result with 1 click using " AC " button
+        function clearResult(){
+            document.getElementById("result").value="";
+        }
+    
+        // Calculating the user input
+        function calculateResult(){
+            let result=document.getElementById("result").value;
+            let finalResult=eval(result);
+            document.getElementById("result").value=finalResult;
+        }
+    
+        // Delete option to delete the last element or number in the input data
+        function deleteResult(){
+            let backspace=document.getElementById("result").value;
+            document.getElementById("result").value=backspace.slice(0,-1);
+        }
+    </script>
+    
+</body>
+</html>
